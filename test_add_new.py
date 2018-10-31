@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 import unittest
+from contact_properties import Contact
 
 
 def is_alert_present(wd):
@@ -23,7 +24,7 @@ class TestAddNew(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_page_add_new(wd)
-        self.add_new_names(wd, firstname="Ekaterina", middlename="Aleksandrovna", lastname="Pentjuhina", nickname="kate_penti")
+        self.add_new_names(wd, Contact(firstname="Ekaterina", middlename="Aleksandrovna", lastname="Pentjuhina", nickname="kate_penti"))
         self.add_new_details(wd, title="ttl", company="company", address="Kolomna", mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net")
         self.add_new_bday(wd, bday="14", bmonth="October", byear="1991")
         self.add_new_aday(wd, aday="1", amonth="January", ayear="2000")
@@ -46,24 +47,24 @@ class TestAddNew(unittest.TestCase):
         # open page for create new contact
         wd.find_element_by_link_text("add new").click()
 
-    def add_new_names(self, wd, firstname, middlename, lastname, nickname):
+    def add_new_names(self, wd, contact):
         # fill name of new contact
         # fill firstname
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(firstname)
+        wd.find_element_by_name("firstname").send_keys(contact.firstname)
         # fill middlename
         wd.find_element_by_name("middlename").click()
         wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys(middlename)
+        wd.find_element_by_name("middlename").send_keys(contact.middlename)
         # fill lastname
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(lastname)
+        wd.find_element_by_name("lastname").send_keys(contact.lastname)
         # fill nickname
         wd.find_element_by_name("nickname").click()
         wd.find_element_by_name("nickname").clear()
-        wd.find_element_by_name("nickname").send_keys(nickname)
+        wd.find_element_by_name("nickname").send_keys(contact.nickname)
 
     def add_new_details(self, wd, title, company, address, mobile, email, homepage):
         # fill contact details
