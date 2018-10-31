@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 import unittest
-from contact_properties import Contact
+from contact_properties import *
 
 
 def is_alert_present(wd):
@@ -24,11 +24,11 @@ class TestAddNew(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_page_add_new(wd)
-        self.add_new_names(wd, Contact(firstname="Ekaterina", middlename="Aleksandrovna", lastname="Pentjuhina", nickname="kate_penti"))
-        self.add_new_details(wd, title="ttl", company="company", address="Kolomna", mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net")
-        self.add_new_bday(wd, bday="14", bmonth="October", byear="1991")
-        self.add_new_aday(wd, aday="1", amonth="January", ayear="2000")
-        self.add_new_secondary(wd, address2="address", phone2="home-phone", notes="notes")
+        self.add_new_names(wd, ContactName(firstname="Ekaterina", middlename="Aleksandrovna", lastname="Pentjuhina", nickname="kate_penti"))
+        self.add_new_details(wd, ContactDetails(title="ttl", company="company", address="Kolomna", mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net"))
+        self.add_new_bday(wd, ContactDate(day="14", month="October", year="1991"))
+        self.add_new_aday(wd, ContactDate(day="1", month="January", year="2010"))
+        self.add_new_secondary(wd, ContactSecondary(address2="address", phone2="home-phone", notes="notes"))
         self.submit(wd)
         self.logout(wd)
 
@@ -66,77 +66,77 @@ class TestAddNew(unittest.TestCase):
         wd.find_element_by_name("nickname").clear()
         wd.find_element_by_name("nickname").send_keys(contact.nickname)
 
-    def add_new_details(self, wd, title, company, address, mobile, email, homepage):
+    def add_new_details(self, wd, contact_details):
         # fill contact details
         # fill title
         wd.find_element_by_name("title").click()
         wd.find_element_by_name("title").clear()
-        wd.find_element_by_name("title").send_keys(title)
+        wd.find_element_by_name("title").send_keys(contact_details.title)
         # fill company's name
         wd.find_element_by_name("company").click()
         wd.find_element_by_name("company").clear()
-        wd.find_element_by_name("company").send_keys(company)
+        wd.find_element_by_name("company").send_keys(contact_details.company)
         # fill address
         wd.find_element_by_name("address").click()
         wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys(address)
+        wd.find_element_by_name("address").send_keys(contact_details.address)
         # fill mobile
         wd.find_element_by_name("mobile").click()
         wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys(mobile)
+        wd.find_element_by_name("mobile").send_keys(contact_details.mobile)
         # fill e-mail
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys(email)
+        wd.find_element_by_name("email").send_keys(contact_details.email)
         # fill homepage
         wd.find_element_by_name("homepage").click()
         wd.find_element_by_name("homepage").clear()
-        wd.find_element_by_name("homepage").send_keys(homepage)
+        wd.find_element_by_name("homepage").send_keys(contact_details.homepage)
 
-    def add_new_bday(self, wd, bday, bmonth, byear):
+    def add_new_bday(self, wd, contact_bday):
         # fill b-day
         # day
         wd.find_element_by_name("bday").click()
-        Select(wd.find_element_by_name("bday")).select_by_visible_text(bday)
+        Select(wd.find_element_by_name("bday")).select_by_visible_text(contact_bday.day)
         wd.find_element_by_xpath("//option[@value='14']").click()
         # month
         wd.find_element_by_name("bmonth").click()
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(bmonth)
+        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact_bday.month)
         wd.find_element_by_xpath("//option[@value='October']").click()
         # year
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys(byear)
+        wd.find_element_by_name("byear").send_keys(contact_bday.year)
 
-    def add_new_aday(self, wd, aday, amonth, ayear):
+    def add_new_aday(self, wd, contact_aday):
         # fill anniversary
         # day
         wd.find_element_by_name("aday").click()
-        Select(wd.find_element_by_name("aday")).select_by_visible_text(aday)
+        Select(wd.find_element_by_name("aday")).select_by_visible_text(contact_aday.day)
         wd.find_element_by_xpath("(//option[@value='1'])[2]").click()
         # month
         wd.find_element_by_name("amonth").click()
-        Select(wd.find_element_by_name("amonth")).select_by_visible_text(amonth)
+        Select(wd.find_element_by_name("amonth")).select_by_visible_text(contact_aday.month)
         wd.find_element_by_xpath("(//option[@value='January'])[2]").click()
         # year
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
-        wd.find_element_by_name("ayear").send_keys(ayear)
+        wd.find_element_by_name("ayear").send_keys(contact_aday.year)
 
-    def add_new_secondary(self, wd, address2, phone2, notes):
+    def add_new_secondary(self, wd, contact_secondary):
         # fill secondary details
         # fill address
         wd.find_element_by_name("address2").click()
         wd.find_element_by_name("address2").clear()
-        wd.find_element_by_name("address2").send_keys(address2)
+        wd.find_element_by_name("address2").send_keys(contact_secondary.address2)
         # fill home phone
         wd.find_element_by_name("phone2").click()
         wd.find_element_by_name("phone2").clear()
-        wd.find_element_by_name("phone2").send_keys(phone2)
+        wd.find_element_by_name("phone2").send_keys(contact_secondary.phone2)
         # fill notes
         wd.find_element_by_name("notes").click()
         wd.find_element_by_name("notes").clear()
-        wd.find_element_by_name("notes").send_keys(notes)
+        wd.find_element_by_name("notes").send_keys(contact_secondary.notes)
 
     def submit(self, wd):
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
