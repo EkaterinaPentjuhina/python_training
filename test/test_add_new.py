@@ -18,6 +18,6 @@ def test_add_new(app):
                       mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
                       address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                       byear="1991", aday="1", amonth="January", ayear="2010")
-    app.add_new_contact(contact)
+    app.contact.add_new(contact)
     app.session.logout()
 
