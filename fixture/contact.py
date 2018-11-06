@@ -1,6 +1,5 @@
 from selenium.webdriver.support.ui import Select
 
-
 class ContactHelper:
 
     def __init__(self, app):
@@ -100,3 +99,59 @@ class ContactHelper:
     def submit(self):
         wd = self.app.wd
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        # select first contact
+        wd.find_element_by_name("selected[]").click()
+        # submit deletion
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        wd.switch_to_alert().accept()
+
+    def edit_first_contact(self, contact):
+        wd = self.app.wd
+        # select first contact
+        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        # update mobile
+        wd.find_element_by_name("mobile").click()
+        wd.find_element_by_name("mobile").clear()
+        wd.find_element_by_name("mobile").send_keys(contact.mobile)
+        # submit
+        wd.find_element_by_name("update").click()
+        # return to homepage
+        wd.find_element_by_link_text("home").click()
+
+    def view_details_of_first_contact(self):
+        wd = self.app.wd
+        # open firm of first contact's details
+        wd.find_element_by_xpath("//img[@alt='Details']").click()
+        # return to homepage
+        wd.find_element_by_link_text("home").click()
+
+    def edit_first_contact_from_details(self, contact):
+        wd = self.app.wd
+        # open firm of first contact's details
+        wd.find_element_by_xpath("//img[@alt='Details']").click()
+        # modify
+        wd.find_element_by_name("modifiy").click()
+        # update phone2
+        wd.find_element_by_name("phone2").click()
+        wd.find_element_by_name("phone2").clear()
+        wd.find_element_by_name("phone2").send_keys(contact.phone2)
+        # submit
+        wd.find_element_by_name("update").click()
+        # return to homepage
+        wd.find_element_by_link_text("home").click()
+
+    def delete_first_contact_from_edit_firm(self):
+        wd = self.app.wd
+        # select first contact
+        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        # submit deletion
+        wd.find_element_by_xpath("(//input[@name='update'])[3]").click()
+        # return to homepage
+        wd.find_element_by_link_text("home").click()
+
+
+
+
