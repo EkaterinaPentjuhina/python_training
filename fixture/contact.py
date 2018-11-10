@@ -1,5 +1,6 @@
 from selenium.webdriver.support.ui import Select
 
+
 class ContactHelper:
 
     def __init__(self, app):
@@ -10,9 +11,8 @@ class ContactHelper:
         # open page for create new contact
         wd.find_element_by_link_text("add new").click()
 
-    def add_new(self, contact):
+    def fill_contact_details(self, contact):
         wd = self.app.wd
-        self.open_page_add_new()
         # fill name of new contact
         # fill firstname
         wd.find_element_by_name("firstname").click()
@@ -94,6 +94,11 @@ class ContactHelper:
         wd.find_element_by_name("notes").click()
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys(contact.notes)
+
+    def add_new(self, contact):
+        wd = self.app.wd
+        self.open_page_add_new()
+        self.fill_contact_details(contact)
         self.submit()
 
     def submit(self):
@@ -112,10 +117,8 @@ class ContactHelper:
         wd = self.app.wd
         # select first contact
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
-        # update mobile
-        wd.find_element_by_name("mobile").click()
-        wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys(contact.mobile)
+        # update contact details
+        self.fill_contact_details(contact)
         # submit
         wd.find_element_by_name("update").click()
         # return to homepage
@@ -134,10 +137,8 @@ class ContactHelper:
         wd.find_element_by_xpath("//img[@alt='Details']").click()
         # modify
         wd.find_element_by_name("modifiy").click()
-        # update phone2
-        wd.find_element_by_name("phone2").click()
-        wd.find_element_by_name("phone2").clear()
-        wd.find_element_by_name("phone2").send_keys(contact.phone2)
+        # update contact details
+        self.fill_contact_details(contact)
         # submit
         wd.find_element_by_name("update").click()
         # return to homepage
