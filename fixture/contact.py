@@ -100,6 +100,8 @@ class ContactHelper:
         self.open_page_add_new()
         self.fill_contact_details(contact)
         self.submit()
+        # return to homepage
+        wd.find_element_by_link_text("home").click()
 
     def submit(self):
         wd = self.app.wd
@@ -112,6 +114,8 @@ class ContactHelper:
         # submit deletion
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to.alert.accept()
+        # return to homepage
+        wd.find_element_by_link_text("home").click()
 
     def edit_first_contact(self, contact):
         wd = self.app.wd
