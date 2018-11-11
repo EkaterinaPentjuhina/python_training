@@ -9,3 +9,4 @@ def test_add_empty_group(app):
 def test_add_group(app):
     app.group.create(Group(name="asdf", header="zxcv", footer="qwee"))
 
+
