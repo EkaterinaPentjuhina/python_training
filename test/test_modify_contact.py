@@ -14,7 +14,10 @@ def test_edit_first_contact(app):
                       mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
                       address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                       byear="1991", aday="1", amonth="January", ayear="2006")
+    old_contacts = app.contact.get_contact_list()
     app.contact.edit_first_contact(contact)
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) == len(new_contacts)
 
 
 def test_edit_contact_firstname(app):
@@ -24,7 +27,10 @@ def test_edit_contact_firstname(app):
                                     mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
                                     address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                                     byear="1991", aday="1", amonth="January", ayear="2010"))
+    old_contacts = app.contact.get_contact_list()
     app.contact.edit_first_contact(Contact(firstname="Kate"))
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) == len(new_contacts)
 
 
 def test_edit_contact_mobile(app):
@@ -34,7 +40,10 @@ def test_edit_contact_mobile(app):
                                     mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
                                     address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                                     byear="1991", aday="1", amonth="January", ayear="2010"))
+    old_contacts = app.contact.get_contact_list()
     app.contact.edit_first_contact(Contact(mobile="8-222-222-22-22"))
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) == len(new_contacts)
 
 
 def test_edit_first_contact_from_details(app):
@@ -45,7 +54,11 @@ def test_edit_first_contact_from_details(app):
                                     mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
                                     address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                                     byear="1991", aday="1", amonth="January", ayear="2010"))
+    old_contacts = app.contact.get_contact_list()
     app.contact.edit_first_contact_from_details(Contact(address="Saint-Petersburg"))
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) == len(new_contacts)
+
 
 #
 # def test_contact_details(app):

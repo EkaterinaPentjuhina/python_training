@@ -9,7 +9,10 @@ def test_delete_first_contact(app):
                                     mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
                                     address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                                     byear="1991", aday="1", amonth="January", ayear="2010"))
+    old_contacts = app.contact.get_contact_list()
     app.contact.delete_first_contact()
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) - 1 == len(new_contacts)
 
 
 def test_delete_contact_from_edit_form(app):
@@ -20,7 +23,10 @@ def test_delete_contact_from_edit_form(app):
                                     mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
                                     address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                                     byear="1991", aday="1", amonth="January", ayear="2010"))
+    old_contacts = app.contact.get_contact_list()
     app.contact.delete_first_contact_from_edit_form()
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) - 1 == len(new_contacts)
 
 
 
