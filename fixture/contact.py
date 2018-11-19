@@ -70,26 +70,32 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
 
-    def delete_first_contact(self):
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         # select first contact
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
         # submit deletion
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to.alert.accept()
         wd.find_element_by_id("logo").click()
         self.contact_cache = None
 
-    def edit_first_contact(self, contact):
+    def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+    def edit_contact_by_index(self, index, contact):
         wd = self.app.wd
         # select first contact
-        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
         # update contact details
         self.fill_contact_details(contact)
         # submit
         wd.find_element_by_name("update").click()
         self.return_to_homepage()
         self.contact_cache = None
+
+    def edit_first_contact(self, contact):
+        self.edit_contact_by_index(0, contact)
 
     def view_details_of_first_contact(self):
         wd = self.app.wd
@@ -108,14 +114,17 @@ class ContactHelper:
         self.return_to_homepage()
         self.contact_cache = None
 
-    def delete_first_contact_from_edit_form(self):
+    def delete_contact_by_index_from_edit_form(self, index):
         wd = self.app.wd
         # open edit form of first contact
-        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
         # submit deletion
         wd.find_element_by_xpath("(//input[@name='update'])[3]").click()
         self.return_to_homepage()
         self.contact_cache = None
+
+    def delete_first_contact_from_edit_form(self):
+        self.delete_contact_by_index_from_edit_form(0)
 
     def return_to_homepage(self):
         wd = self.app.wd

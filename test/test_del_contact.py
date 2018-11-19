@@ -1,4 +1,5 @@
 from model.contact_properties import Contact
+from random import randrange
 
 
 def test_delete_first_contact(app):
@@ -10,10 +11,11 @@ def test_delete_first_contact(app):
                                     address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                                     byear="1991", aday="1", amonth="January", ayear="2010"))
     old_contacts = app.contact.get_contact_list()
-    app.contact.delete_first_contact()
+    index = randrange(len(old_contacts))
+    app.contact.delete_contact_by_index(index)
     new_contacts = app.contact.get_contact_list()
     assert len(old_contacts) - 1 == len(new_contacts)
-    old_contacts[0:1] = []
+    old_contacts[index:index+1] = []
     assert old_contacts == new_contacts
 
 
@@ -26,10 +28,11 @@ def test_delete_contact_from_edit_form(app):
                                     address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                                     byear="1991", aday="1", amonth="January", ayear="2010"))
     old_contacts = app.contact.get_contact_list()
-    app.contact.delete_first_contact_from_edit_form()
+    index = randrange(len(old_contacts))
+    app.contact.delete_contact_by_index_from_edit_form(index)
     new_contacts = app.contact.get_contact_list()
     assert len(old_contacts) - 1 == len(new_contacts)
-    old_contacts[0:1] = []
+    old_contacts[index:index+1] = []
     assert old_contacts == new_contacts
 
 
