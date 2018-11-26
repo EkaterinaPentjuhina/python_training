@@ -157,9 +157,9 @@ class ContactHelper:
                 firstname = element.find_element_by_css_selector("td:nth-child(3)").text
                 lastname = element.find_element_by_css_selector("td:nth-child(2)").text
                 id = element.find_element_by_name("selected[]").get_attribute("value")
-                all_phones = element.find_element_by_css_selector("td:nth-child(6)").text.splitlines()
-                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id, homephone=all_phones[0],
-                                                  mobilephone=all_phones[1], workphone=all_phones[2], phone2=all_phones[3]))
+                all_phones = element.find_element_by_css_selector("td:nth-child(6)").text
+                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id,
+                                                  all_phones_from_home_page=all_phones))
         return list(self.contact_cache)
 
     def get_contact_info_from_edit_page(self, index):
