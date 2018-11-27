@@ -23,7 +23,8 @@ def random_mix_string(maxlen, postfix):
 testdata = [
     Contact(firstname=random_string(10), lastname=random_string(15), middlename=random_string(15),
             nickname=random_string(7), title=random_string(15), company=random_string(15),
-            mobilephone=random_digit(11), email=random_mix_string(10, "@mail.ru"), homepage=random_mix_string(10, ".net"),
+            homephone=random_digit(11), mobilephone=random_digit(11), workphone=random_digit(11), phone2=random_digit(11),
+            email=random_mix_string(10, "@mail.ru"), homepage=random_mix_string(10, ".net"),
             address=random_string(20))
     for i in range(5)
 ]
