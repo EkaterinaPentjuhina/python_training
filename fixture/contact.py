@@ -24,7 +24,7 @@ class ContactHelper:
         self.change_field_value("title", contact.title)
         self.change_field_value("company", contact.company)
         self.change_field_value("address", contact.address)
-        self.change_field_value("mobile", contact.mobile)
+        self.change_field_value("mobile", contact.mobilephone)
         self.change_field_value("email", contact.email)
         self.change_field_value("homepage", contact.homepage)
         # fill b-day
