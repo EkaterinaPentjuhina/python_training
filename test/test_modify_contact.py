@@ -2,7 +2,7 @@ from model.contact_properties import Contact
 from random import randrange
 
 
-def test_edit_first_contact(app):
+def test_edit_contact(app):
     # редактирование контакта - переход по кнопке в таблице контактов
     if app.contact.count() == 0:
         app.contact.add_new(Contact(firstname="Ekaterina", middlename="Aleksandrovna", lastname="Pentjuhina",
@@ -15,8 +15,7 @@ def test_edit_first_contact(app):
     contact = Contact(firstname="Katerina", middlename="Aleksandrovna", lastname="Pentjuhina",
                       nickname="kate_penti", title="ttl", company="company", address="Kolomna",
                       mobilephone="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
-                      address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
-                      byear="1991", aday="1", amonth="January", ayear="2006")
+                      address2="address", phone2="home-phone", notes="notes")
     contact.id = old_contacts[index].id
     app.contact.edit_contact_by_index(index, contact)
     new_contacts = app.contact.get_contact_list()
