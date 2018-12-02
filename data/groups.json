@@ -1,68 +1,23 @@
 [
   {
-    "name": "",
-    "header": "",
+    "py/object": "model.group.Group",
     "footer": "",
-    "id": null
+    "header": "",
+    "id": null,
+    "name": ""
   },
   {
-    "name": "namenzHPGvT",
-    "header": "headerr6Z0aqeaVi0g8Ls",
-    "footer": "footerQ",
-    "id": null
+    "py/object": "model.group.Group",
+    "footer": "footerZX1rvyU9ady9ab6a",
+    "header": "headerQMWOLe3tbWay",
+    "id": null,
+    "name": "nameG9H4"
   },
   {
-    "name": "name3XjGTsZP",
-    "header": "headerS",
-    "footer": "footerkfQaoby70",
-    "id": null
-  },
-  {
-    "name": "namer",
-    "header": "headeraefcV",
-    "footer": "footerMS1",
-    "id": null
-  },
-  {
-    "name": "nameJ6",
-    "header": "headerPjpNaaUTirSmt",
-    "footer": "footerzeortkXT",
-    "id": null
-  },
-  {
-    "name": "name1RrrsYFB",
-    "header": "headerE7nScI6N",
-    "footer": "footer",
-    "id": null
-  },
-  {
-    "name": "namekwiOBkSW4",
-    "header": "headerS52kwrlFksEU32nwjB",
-    "footer": "footer",
-    "id": null
-  },
-  {
-    "name": "name2UgnZs22d",
-    "header": "headerrK1xhHjf",
-    "footer": "footernXWroye6lAUZa",
-    "id": null
-  },
-  {
-    "name": "namevS",
-    "header": "headeriC",
-    "footer": "footertB2og5F9zYeO5Q9C8bB",
-    "id": null
-  },
-  {
-    "name": "nameCL87jD",
-    "header": "headerE",
-    "footer": "footerV2wePRzDxVNL3VetOW",
-    "id": null
-  },
-  {
-    "name": "namenRoqgt",
-    "header": "headerN0GFJPxWKCj4QV",
-    "footer": "footerEj6C01epA",
-    "id": null
+    "py/object": "model.group.Group",
+    "footer": "footerYgRhOMu2s",
+    "header": "headerMl6mflj",
+    "id": null,
+    "name": "name"
   }
 ]
