@@ -7,7 +7,7 @@
   "db": {
    "host": "localhost",
    "name": "addressbook",
-   "username": "root",
+   "user": "root",
    "password": ""
   }
 }
