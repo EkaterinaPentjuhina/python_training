@@ -227,6 +227,35 @@ class ContactHelper:
         secondaryphone = re.search("P: (.*)", text).group(1)
         return Contact(homephone=homephone, mobilephone=mobilephone, workphone=workphone, phone2=secondaryphone)
 
+    def add_contact_to_group(self, contact_id, group_name):
+        wd = self.app.wd
+        self.app.open_home_page()
+        self.select_contact_by_id(contact_id)
+        self.select_group_for_add_to(group_name)
+        wd.find_element_by_name("add").click()
+
+    def delete_contact_from_group(self, group_name, contact_id):
+        wd = self.app.wd
+        self.filter_contacts_by_group(group_name)
+        self.select_contact_by_id(contact_id)
+        wd.find_element_by_name("remove").click()
+
+    def filter_contacts_by_group(self, group_name):
+        wd = self.app.wd
+        self.app.open_home_page()
+        Select(wd.find_element_by_name("group")).select_by_visible_text(group_name)
+
+    def select_group_for_add_to(self, group_name):
+        wd = self.app.wd
+        self.app.open_home_page()
+        Select(wd.find_element_by_name("to_group")).select_by_visible_text(group_name)
+
+
+
+
+
+
+
 
 
 

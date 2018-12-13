@@ -7,7 +7,7 @@ def test_delete_contact(app, db, check_ui):
     if len(db.get_contact_list()) == 0:
         app.contact.add_new(Contact(firstname="Ekaterina", middlename="Aleksandrovna", lastname="Pentjuhina",
                                     nickname="kate_penti", title="ttl", company="company", address="Kolomna",
-                                    mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
+                                    mobilephone="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
                                     address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                                     byear="1991", aday="1", amonth="January", ayear="2010"))
     old_contacts = db.get_contact_list()
@@ -25,7 +25,7 @@ def test_delete_contact_from_edit_form(app, db, check_ui):
     if len(db.get_contact_list()) == 0:
         app.contact.add_new(Contact(firstname="Ekaterina", middlename="Aleksandrovna", lastname="Pentjuhina",
                                     nickname="kate_penti", title="ttl", company="company", address="Kolomna",
-                                    mobile="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
+                                    mobilephone="8-111-111-11-11", email="katkarach@gmail.com", homepage="hmpg.net",
                                     address2="address", phone2="home-phone", notes="notes", bday="14", bmonth="October",
                                     byear="1991", aday="1", amonth="January", ayear="2010"))
     old_contacts = db.get_contact_list()
