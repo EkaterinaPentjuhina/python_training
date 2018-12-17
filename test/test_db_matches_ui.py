@@ -14,3 +14,10 @@ def test_contact_list(app, db):
     ui_contact_list = app.contact.get_contact_list()
     db_contact_list = db.get_contact_list()
     assert sorted(ui_contact_list, key=Contact.id_or_max) == sorted(db_contact_list, key=Contact.id_or_max)
+
+
+def test_contacts_in_group_db_ui(app, orm):
+    group_id = 229
+    ui_list = app.contact.get_contacts_in_group(group_id)
+    orm_list = orm.get_contacts_in_group(group_id)
+    assert sorted(ui_list, key=Contact.id_or_max) == sorted(orm_list, key=Contact.id_or_max)
