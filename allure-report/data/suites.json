@@ -1,0 +1,137 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "test",
+    "children" : [ {
+      "name" : "test_add_group",
+      "children" : [ {
+        "name" : "test_add_group[None:]",
+        "uid" : "ea2de8dcee681370",
+        "parentUid" : "5d3e96f7ebf064b5c68ffe91a0a61511",
+        "status" : "passed",
+        "time" : {
+          "start" : 1547238427852,
+          "stop" : 1547238429617,
+          "duration" : 1765
+        },
+        "flaky" : false,
+        "parameters" : [ "None:" ]
+      }, {
+        "name" : "test_add_group[None:name'a]",
+        "uid" : "9759646c360abf2",
+        "parentUid" : "5d3e96f7ebf064b5c68ffe91a0a61511",
+        "status" : "failed",
+        "time" : {
+          "start" : 1547238429799,
+          "stop" : 1547238431214,
+          "duration" : 1415
+        },
+        "flaky" : false,
+        "parameters" : [ "None:name'a" ]
+      }, {
+        "name" : "test_add_group[None:nameJLN6xQlyi]",
+        "uid" : "acaafeb32085a4ce",
+        "parentUid" : "5d3e96f7ebf064b5c68ffe91a0a61511",
+        "status" : "passed",
+        "time" : {
+          "start" : 1547238431431,
+          "stop" : 1547238432801,
+          "duration" : 1370
+        },
+        "flaky" : false,
+        "parameters" : [ "None:nameJLN6xQlyi" ]
+      } ],
+      "uid" : "5d3e96f7ebf064b5c68ffe91a0a61511"
+    }, {
+      "name" : "test_del_group",
+      "children" : [ {
+        "name" : "test_delete_some_group",
+        "uid" : "5ceff9a4050275dc",
+        "parentUid" : "d23facdfe6db251dca2c6a095c39537f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1547238467112,
+          "stop" : 1547238468076,
+          "duration" : 964
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d23facdfe6db251dca2c6a095c39537f"
+    }, {
+      "name" : "test_add_new",
+      "children" : [ {
+        "name" : "test_add_new[None:PFmvpTdrhzMd R]",
+        "uid" : "4b79640cc4297f66",
+        "parentUid" : "e111ab3918e7b616bc5dcb7674343b11",
+        "status" : "passed",
+        "time" : {
+          "start" : 1547238513934,
+          "stop" : 1547238517833,
+          "duration" : 3899
+        },
+        "flaky" : false,
+        "parameters" : [ "None:PFmvpTdrhzMd R" ]
+      }, {
+        "name" : "test_add_new[None:KtojclLZDaoOb Ymrerzetr]",
+        "uid" : "da47f22a51345cfa",
+        "parentUid" : "e111ab3918e7b616bc5dcb7674343b11",
+        "status" : "passed",
+        "time" : {
+          "start" : 1547238518362,
+          "stop" : 1547238522069,
+          "duration" : 3707
+        },
+        "flaky" : false,
+        "parameters" : [ "None:KtojclLZDaoOb Ymrerzetr" ]
+      } ],
+      "uid" : "e111ab3918e7b616bc5dcb7674343b11"
+    }, {
+      "name" : "test_del_contact",
+      "children" : [ {
+        "name" : "test_delete_contact",
+        "uid" : "61f5692323dd8481",
+        "parentUid" : "ad9c38ad35027ba64876ab7a8ecdd9e3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1547238564665,
+          "stop" : 1547238565330,
+          "duration" : 665
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_delete_contact_from_edit_form",
+        "uid" : "6543989a080fb98",
+        "parentUid" : "ad9c38ad35027ba64876ab7a8ecdd9e3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1547238565818,
+          "stop" : 1547238566545,
+          "duration" : 727
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "ad9c38ad35027ba64876ab7a8ecdd9e3"
+    }, {
+      "name" : "test_modify_contact",
+      "children" : [ {
+        "name" : "test_edit_contact",
+        "uid" : "8f45fd8d77198676",
+        "parentUid" : "7ad5279c4afaea0ff61e96223a6b20a2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1547238599901,
+          "stop" : 1547238604635,
+          "duration" : 4734
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "7ad5279c4afaea0ff61e96223a6b20a2"
+    } ],
+    "uid" : "ff2b04dbb9c449a4d40723f51d841925"
+  } ]
+}

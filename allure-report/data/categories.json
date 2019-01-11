@@ -1,0 +1,25 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: assert [217:name2, 2...38:name1, ...] == [217:name2, 23...38:name1, ...]\n  Left contains more items, first extra item: None:name'a\n  Use -v to get the full diff",
+      "children" : [ {
+        "name" : "test_add_group[None:name'a]",
+        "uid" : "9759646c360abf2",
+        "parentUid" : "eb215834f0b7d21fd952c85bfee99b32",
+        "status" : "failed",
+        "time" : {
+          "start" : 1547238429799,
+          "stop" : 1547238431214,
+          "duration" : 1415
+        },
+        "flaky" : false,
+        "parameters" : [ "None:name'a" ]
+      } ],
+      "uid" : "eb215834f0b7d21fd952c85bfee99b32"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}

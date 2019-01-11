@@ -1,0 +1,91 @@
+[ {
+  "uid" : "4b79640cc4297f66",
+  "name" : "test_add_new[None:PFmvpTdrhzMd R]",
+  "time" : {
+    "start" : 1547238513934,
+    "stop" : 1547238517833,
+    "duration" : 3899
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9759646c360abf2",
+  "name" : "test_add_group[None:name'a]",
+  "time" : {
+    "start" : 1547238429799,
+    "stop" : 1547238431214,
+    "duration" : 1415
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "6543989a080fb98",
+  "name" : "test_delete_contact_from_edit_form",
+  "time" : {
+    "start" : 1547238565818,
+    "stop" : 1547238566545,
+    "duration" : 727
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5ceff9a4050275dc",
+  "name" : "test_delete_some_group",
+  "time" : {
+    "start" : 1547238467112,
+    "stop" : 1547238468076,
+    "duration" : 964
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8f45fd8d77198676",
+  "name" : "test_edit_contact",
+  "time" : {
+    "start" : 1547238599901,
+    "stop" : 1547238604635,
+    "duration" : 4734
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "61f5692323dd8481",
+  "name" : "test_delete_contact",
+  "time" : {
+    "start" : 1547238564665,
+    "stop" : 1547238565330,
+    "duration" : 665
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "da47f22a51345cfa",
+  "name" : "test_add_new[None:KtojclLZDaoOb Ymrerzetr]",
+  "time" : {
+    "start" : 1547238518362,
+    "stop" : 1547238522069,
+    "duration" : 3707
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ea2de8dcee681370",
+  "name" : "test_add_group[None:]",
+  "time" : {
+    "start" : 1547238427852,
+    "stop" : 1547238429617,
+    "duration" : 1765
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "acaafeb32085a4ce",
+  "name" : "test_add_group[None:nameJLN6xQlyi]",
+  "time" : {
+    "start" : 1547238431431,
+    "stop" : 1547238432801,
+    "duration" : 1370
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
