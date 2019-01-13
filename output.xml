@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.1 (Python 3.7.1 on win32)" generated="20190114 00:20:17.874" rpa="false">
+<suite id="s1" name="Contact Scenarios" source="C:\Users\Penti\PycharmProjects\python_training\rf\contact_scenarios.robot">
+<kw name="Init Fixtures" library="rf.AddressBook" type="setup">
+<status status="PASS" starttime="20190114 00:20:18.157" endtime="20190114 00:20:26.306"></status>
+</kw>
+<test id="s1-t1" name="Add new contact">
+<kw name="Get Contact List" library="rf.AddressBook">
+<assign>
+<var>${old_list}</var>
+</assign>
+<msg timestamp="20190114 00:20:26.312" level="INFO">${old_list} = [256:lastname2 firstname2, 262:PFmvpTdrhzMd R, 267:lastname2 firstname2, 271:lastname2 firstname2, 273:lastname1 firstname1, 274:lastname2 firstname2, 275:lastname1 firstname1, 276:lastname1 firstname...</msg>
+<status status="PASS" starttime="20190114 00:20:26.308" endtime="20190114 00:20:26.312"></status>
+</kw>
+<kw name="New Contact" library="rf.AddressBook">
+<arguments>
+<arg>firstname1</arg>
+<arg>lastname1</arg>
+<arg>middlename1</arg>
+</arguments>
+<assign>
+<var>${contact}</var>
+</assign>
+<msg timestamp="20190114 00:20:26.315" level="INFO">${contact} = None:lastname1 firstname1</msg>
+<status status="PASS" starttime="20190114 00:20:26.314" endtime="20190114 00:20:26.315"></status>
+</kw>
+<kw name="Create Contact" library="rf.AddressBook">
+<arguments>
+<arg>${contact}</arg>
+</arguments>
+<status status="PASS" starttime="20190114 00:20:26.315" endtime="20190114 00:20:27.605"></status>
+</kw>
+<kw name="Get Contact List" library="rf.AddressBook">
+<assign>
+<var>${new_list}</var>
+</assign>
+<msg timestamp="20190114 00:20:27.610" level="INFO">${new_list} = [256:lastname2 firstname2, 262:PFmvpTdrhzMd R, 267:lastname2 firstname2, 271:lastname2 firstname2, 273:lastname1 firstname1, 274:lastname2 firstname2, 275:lastname1 firstname1, 276:lastname1 firstname...</msg>
+<status status="PASS" starttime="20190114 00:20:27.606" endtime="20190114 00:20:27.610"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${old_list}</arg>
+<arg>${contact}</arg>
+</arguments>
+<status status="PASS" starttime="20190114 00:20:27.612" endtime="20190114 00:20:27.612"></status>
+</kw>
+<kw name="Contact Lists Should Be Equal" library="rf.AddressBook">
+<arguments>
+<arg>${new_list}</arg>
+<arg>${old_list}</arg>
+</arguments>
+<status status="PASS" starttime="20190114 00:20:27.613" endtime="20190114 00:20:27.613"></status>
+</kw>
+<status status="PASS" starttime="20190114 00:20:26.306" endtime="20190114 00:20:27.614" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Delete contact">
+<kw name="Get Contact List" library="rf.AddressBook">
+<assign>
+<var>${old_list}</var>
+</assign>
+<msg timestamp="20190114 00:20:27.622" level="INFO">${old_list} = [256:lastname2 firstname2, 262:PFmvpTdrhzMd R, 267:lastname2 firstname2, 271:lastname2 firstname2, 273:lastname1 firstname1, 274:lastname2 firstname2, 275:lastname1 firstname1, 276:lastname1 firstname...</msg>
+<status status="PASS" starttime="20190114 00:20:27.618" endtime="20190114 00:20:27.622"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${old_list}</arg>
+</arguments>
+<assign>
+<var>${len}</var>
+</assign>
+<msg timestamp="20190114 00:20:27.624" level="INFO">Length is 9</msg>
+<msg timestamp="20190114 00:20:27.624" level="INFO">${len} = 9</msg>
+<status status="PASS" starttime="20190114 00:20:27.623" endtime="20190114 00:20:27.624"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>random.randrange(${len})</arg>
+<arg>random</arg>
+</arguments>
+<assign>
+<var>${index}</var>
+</assign>
+<msg timestamp="20190114 00:20:27.625" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20190114 00:20:27.625" endtime="20190114 00:20:27.625"></status>
+</kw>
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${old_list}</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${contact}</var>
+</assign>
+<msg timestamp="20190114 00:20:27.626" level="INFO">${contact} = 267:lastname2 firstname2</msg>
+<status status="PASS" starttime="20190114 00:20:27.625" endtime="20190114 00:20:27.626"></status>
+</kw>
+<kw name="Delete Contact" library="rf.AddressBook">
+<arguments>
+<arg>${contact}</arg>
+</arguments>
+<status status="PASS" starttime="20190114 00:20:27.626" endtime="20190114 00:20:28.103"></status>
+</kw>
+<kw name="Get Contact List" library="rf.AddressBook">
+<assign>
+<var>${new_list}</var>
+</assign>
+<msg timestamp="20190114 00:20:28.107" level="INFO">${new_list} = [256:lastname2 firstname2, 262:PFmvpTdrhzMd R, 271:lastname2 firstname2, 273:lastname1 firstname1, 274:lastname2 firstname2, 275:lastname1 firstname1, 276:lastname1 firstname1, 277:lastname1 firstname...</msg>
+<status status="PASS" starttime="20190114 00:20:28.104" endtime="20190114 00:20:28.107"></status>
+</kw>
+<kw name="Remove Values From List" library="Collections">
+<doc>Removes all occurrences of given ``values`` from ``list``.</doc>
+<arguments>
+<arg>${old_list}</arg>
+<arg>${contact}</arg>
+</arguments>
+<status status="PASS" starttime="20190114 00:20:28.107" endtime="20190114 00:20:28.108"></status>
+</kw>
+<kw name="Contact Lists Should Be Equal" library="rf.AddressBook">
+<arguments>
+<arg>${new_list}</arg>
+<arg>${old_list}</arg>
+</arguments>
+<status status="PASS" starttime="20190114 00:20:28.108" endtime="20190114 00:20:28.109"></status>
+</kw>
+<status status="PASS" starttime="20190114 00:20:27.616" endtime="20190114 00:20:28.109" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Modify contact">
+<kw name="Get Contact List" library="rf.AddressBook">
+<assign>
+<var>${old_list}</var>
+</assign>
+<msg timestamp="20190114 00:20:28.118" level="INFO">${old_list} = [256:lastname2 firstname2, 262:PFmvpTdrhzMd R, 271:lastname2 firstname2, 273:lastname1 firstname1, 274:lastname2 firstname2, 275:lastname1 firstname1, 276:lastname1 firstname1, 277:lastname1 firstname...</msg>
+<status status="PASS" starttime="20190114 00:20:28.115" endtime="20190114 00:20:28.118"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${old_list}</arg>
+</arguments>
+<assign>
+<var>${len}</var>
+</assign>
+<msg timestamp="20190114 00:20:28.119" level="INFO">Length is 8</msg>
+<msg timestamp="20190114 00:20:28.119" level="INFO">${len} = 8</msg>
+<status status="PASS" starttime="20190114 00:20:28.118" endtime="20190114 00:20:28.119"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>random.randrange(${len})</arg>
+<arg>random</arg>
+</arguments>
+<assign>
+<var>${index}</var>
+</assign>
+<msg timestamp="20190114 00:20:28.120" level="INFO">${index} = 6</msg>
+<status status="PASS" starttime="20190114 00:20:28.119" endtime="20190114 00:20:28.120"></status>
+</kw>
+<kw name="Get From List" library="Collections">
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${old_list}</arg>
+<arg>${index}</arg>
+</arguments>
+<assign>
+<var>${contact}</var>
+</assign>
+<msg timestamp="20190114 00:20:28.120" level="INFO">${contact} = 276:lastname1 firstname1</msg>
+<status status="PASS" starttime="20190114 00:20:28.120" endtime="20190114 00:20:28.120"></status>
+</kw>
+<kw name="New Contact" library="rf.AddressBook">
+<arguments>
+<arg>firstname2</arg>
+<arg>lastname2</arg>
+<arg>middlename2</arg>
+</arguments>
+<assign>
+<var>${update_contact}</var>
+</assign>
+<msg timestamp="20190114 00:20:28.121" level="INFO">${update_contact} = None:lastname2 firstname2</msg>
+<status status="PASS" starttime="20190114 00:20:28.121" endtime="20190114 00:20:28.121"></status>
+</kw>
+<kw name="Modify Contact" library="rf.AddressBook">
+<arguments>
+<arg>${contact}</arg>
+<arg>${update_contact}</arg>
+</arguments>
+<status status="PASS" starttime="20190114 00:20:28.122" endtime="20190114 00:20:29.585"></status>
+</kw>
+<kw name="Get Contact List" library="rf.AddressBook">
+<assign>
+<var>${new_list}</var>
+</assign>
+<msg timestamp="20190114 00:20:29.593" level="INFO">${new_list} = [256:lastname2 firstname2, 262:PFmvpTdrhzMd R, 271:lastname2 firstname2, 273:lastname1 firstname1, 274:lastname2 firstname2, 275:lastname1 firstname1, 276:lastname2 firstname2, 277:lastname1 firstname...</msg>
+<status status="PASS" starttime="20190114 00:20:29.587" endtime="20190114 00:20:29.593"></status>
+</kw>
+<kw name="Set List Value" library="Collections">
+<doc>Sets the value of ``list`` specified by ``index`` to the given ``value``.</doc>
+<arguments>
+<arg>${old_list}</arg>
+<arg>${index}</arg>
+<arg>${update_contact}</arg>
+</arguments>
+<status status="PASS" starttime="20190114 00:20:29.595" endtime="20190114 00:20:29.596"></status>
+</kw>
+<kw name="Lists Should Be Equal" library="Collections">
+<doc>Fails if given lists are unequal.</doc>
+<arguments>
+<arg>${new_list}</arg>
+<arg>${old_list}</arg>
+</arguments>
+<status status="PASS" starttime="20190114 00:20:29.597" endtime="20190114 00:20:29.598"></status>
+</kw>
+<status status="PASS" starttime="20190114 00:20:28.112" endtime="20190114 00:20:29.599" critical="yes"></status>
+</test>
+<kw name="Destroy Fixtures" library="rf.AddressBook" type="teardown">
+<status status="PASS" starttime="20190114 00:20:29.603" endtime="20190114 00:20:31.846"></status>
+</kw>
+<status status="PASS" starttime="20190114 00:20:17.877" endtime="20190114 00:20:31.846"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="Contact Scenarios">Contact Scenarios</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
